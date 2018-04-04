@@ -123,6 +123,7 @@ class MultipleGameSets:
         self._n_games_in_a_set = n_games_in_a_set  # number of games in each set
 
         self._totalRewards = [] # create an empty list where rewards will be stored
+        self._meanrewards = []
         self._sumStat_totalRewards = None
 
     def simulation(self):
@@ -133,7 +134,7 @@ class MultipleGameSets:
             outcomes = set_of_games.simulation()
             # store the total reward from this game set
             self._totalRewards.append(outcomes.get_total_reward())
-
+            self._meanrewards.append(outcomes.get_ave_reward())
         # summary statistics of total rewards
         self._sumStat_totalRewards = Stat.SummaryStat("Mean Rewards", self._totalRewards)
 
@@ -148,3 +149,5 @@ class MultipleGameSets:
     # get all total rewards
     def get_all_total_rewards(self):
         return self._totalRewards
+    def get_mean_reward(self):
+        return self._meanrewards

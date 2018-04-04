@@ -23,8 +23,8 @@ print('Projected mean reward',
 
 increase = Stat.DifferenceStatIndp(
     name='Increase in mean survival time',
-    x=multipleGameSets2.get_all_total_rewards(),
-    y_ref=multipleGameSets.get_all_total_rewards()
+    x=multipleGameSets2.get_mean_reward(),
+    y_ref=multipleGameSets.get_mean_reward()
 )
 # estimate and prediction interval
 estimate_CI = Format.format_estimate_interval(
@@ -34,3 +34,4 @@ estimate_CI = Format.format_estimate_interval(
 )
 
 print("Expected increase in mean reward and prediction interval is",estimate_CI)
+
